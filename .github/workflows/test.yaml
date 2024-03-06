@@ -10,18 +10,18 @@ jobs:
       - uses: actions/checkout@v4
       - name: Generate Workflow File
         run: |
-          echo "name: Dynamic Generated Workflow" > ./github/workflows/generated_workflow.yml
-          echo "on:" >> ./github/workflows/generated_workflow.yml
-          echo "  push:" >> ./github/workflows/generated_workflow.yml
-          echo "    branches:" >> ./github/workflows/generated_workflow.yml
-          echo "      - main" >> ./github/workflows/generated_workflow.yml
-          echo "jobs:" >> ./github/workflows/generated_workflow.yml
-          echo "  build:" >> ./github/workflows/generated_workflow.yml
-          echo "    runs-on: ubuntu-latest" >> ./github/workflows/generated_workflow.yml
-          echo "    steps:" >> ./github/workflows/generated_workflow.yml
-          echo "      - name: Checkout" >> ./github/workflows/generated_workflow.yml
-          echo "        uses: actions/checkout@v4" >> ./github/workflows/generated_workflow.yml
-          echo "       - run: echo Hello, World!" >> ./github/workflows/generated_workflow.yml
+          echo "name: Dynamic Generated Workflow" >  ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
+          echo "on:" >> ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
+          echo "  push:" >> ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
+          echo "    branches:" >> ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
+          echo "      - main" >> ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
+          echo "jobs:" >> ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
+          echo "  build:" >> ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
+          echo "    runs-on: ubuntu-latest" >> ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
+          echo "    steps:" >> ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
+          echo "      - name: Checkout" >> ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
+          echo "        uses: actions/checkout@v4" >> ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
+          echo "       - run: echo Hello, World!" >> ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
 
       - name: Dispatch Generated Workflow
-        uses: ./github/workflows/generated_workflow.yml
+        uses: ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
