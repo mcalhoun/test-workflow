@@ -7,20 +7,21 @@ jobs:
   generate-workflow:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Generate Workflow File
         run: |
-          echo "name: Dynamic Generated Workflow" > generated_workflow.yml
-          echo "on:" >> generated_workflow.yml
-          echo "  push:" >> generated_workflow.yml
-          echo "    branches:" >> generated_workflow.yml
-          echo "      - main" >> generated_workflow.yml
-          echo "jobs:" >> generated_workflow.yml
-          echo "  build:" >> generated_workflow.yml
-          echo "    runs-on: ubuntu-latest" >> generated_workflow.yml
-          echo "    steps:" >> generated_workflow.yml
-          echo "      - name: Checkout" >> generated_workflow.yml
-          echo "        uses: actions/checkout@v4" >> generated_workflow.yml
-          echo "       - run: echo Hello, World!" >> generated_workflow.yml
+          echo "name: Dynamic Generated Workflow" > ./github/workflows/generated_workflow.yml
+          echo "on:" >> ./github/workflows/generated_workflow.yml
+          echo "  push:" >> ./github/workflows/generated_workflow.yml
+          echo "    branches:" >> ./github/workflows/generated_workflow.yml
+          echo "      - main" >> ./github/workflows/generated_workflow.yml
+          echo "jobs:" >> ./github/workflows/generated_workflow.yml
+          echo "  build:" >> ./github/workflows/generated_workflow.yml
+          echo "    runs-on: ubuntu-latest" >> ./github/workflows/generated_workflow.yml
+          echo "    steps:" >> ./github/workflows/generated_workflow.yml
+          echo "      - name: Checkout" >> ./github/workflows/generated_workflow.yml
+          echo "        uses: actions/checkout@v4" >> ./github/workflows/generated_workflow.yml
+          echo "       - run: echo Hello, World!" >> ./github/workflows/generated_workflow.yml
 
       - name: Dispatch Generated Workflow
-        uses: ./generated_workflow.yml
+        uses: ./github/workflows/generated_workflow.yml
