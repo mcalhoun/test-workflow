@@ -23,7 +23,4 @@ jobs:
           echo "       - run: echo Hello, World!" >> generated_workflow.yml
 
       - name: Dispatch Generated Workflow
-        uses: peter-evans/workflow-dispatch@v2
-        with:
-          workflow_path: ./generated_workflow.yml
-          # Other parameters as needed
+        uses: ./generated_workflow.yml
