@@ -24,5 +24,6 @@ jobs:
           echo "        uses: actions/checkout@v4" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
           echo "       - run: echo Hello, World!" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
 
-      - name: Dispatch Generated Workflow
-        uses: ./github/workflows/generated_workflow.yml
+  run-dynamic:
+    needs: generate-workflow
+    uses: ./github/workflows/generated_workflow.yml
