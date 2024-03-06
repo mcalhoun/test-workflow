@@ -24,4 +24,4 @@ jobs:
           echo "       - run: echo Hello, World!" >> ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
 
       - name: Dispatch Generated Workflow
-        uses: ${GITHUB_WORKSPACE}/./github/workflows/generated_workflow.yml
+        uses: "${{GITHUB_WORKSPACE}}/./github/workflows/generated_workflow.yml"
