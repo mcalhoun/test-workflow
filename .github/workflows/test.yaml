@@ -1,0 +1,29 @@
+name: Dynamic Workflow Dispatcher
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Workflow File
+        run: |
+          echo "name: Dynamic Generated Workflow" > generated_workflow.yml
+          echo "on:" >> generated_workflow.yml
+          echo "  push:" >> generated_workflow.yml
+          echo "    branches:" >> generated_workflow.yml
+          echo "      - main" >> generated_workflow.yml
+          echo "jobs:" >> generated_workflow.yml
+          echo "  build:" >> generated_workflow.yml
+          echo "    runs-on: ubuntu-latest" >> generated_workflow.yml
+          echo "    steps:" >> generated_workflow.yml
+          echo "      - name: Checkout" >> generated_workflow.yml
+          echo "        uses: actions/checkout@v4" >> generated_workflow.yml
+          echo "       - run: echo Hello, World!" >> generated_workflow.yml
+
+      - name: Dispatch Generated Workflow
+        uses: peter-evans/workflow-dispatch@v2
+        with:
+          workflow_path: ./generated_workflow.yml
+          # Other parameters as needed
