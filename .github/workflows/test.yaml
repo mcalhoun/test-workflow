@@ -19,7 +19,7 @@ jobs:
           echo "  build:" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
           echo "    runs-on: ubuntu-latest" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
           echo "    steps:" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
-          echo "      - run: echo Hello, World!" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
+          echo "      - run: echo Hello, New World!" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
 
   run-dynamic:
     needs:
