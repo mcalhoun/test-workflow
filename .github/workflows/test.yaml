@@ -1,6 +1,7 @@
 name: Dynamic Workflow Dispatcher
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
