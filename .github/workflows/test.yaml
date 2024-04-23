@@ -24,4 +24,4 @@ jobs:
   run-dynamic:
     needs:
       - generate-workflow
-    uses: ./.github/workflows/generated_workflow.yml
+    uses: ./.github/workflows/foo/generated_workflow.yml
