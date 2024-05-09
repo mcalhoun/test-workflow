@@ -1,0 +1,28 @@
+name: Dynamic Workflow Dispatcher
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  generate-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate Workflow File
+        run: |
+          touch ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
+          echo "name: Dynamic Generated Workflow" > ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
+          echo "on:" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
+          echo "  workflow_call:" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
+          echo "jobs:" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
+          echo "  build:" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
+          echo "    runs-on: ubuntu-latest" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
+          echo "    steps:" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
+          echo "      - run: echo Hello, New World!" >> ${GITHUB_WORKSPACE}/.github/workflows/generated_workflow.yml
+
+  run-dynamic:
+    needs:
+      - generate-workflow
+    uses: ./.github/workflows/foo/generated_workflow.yml
