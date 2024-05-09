@@ -12,4 +12,6 @@ jobs:
   run-dynamic:
     needs:
       - generate-workflow
-    uses: ./.generated-dynamic-dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.generated-dynamic-dependencies
