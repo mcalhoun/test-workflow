@@ -13,13 +13,15 @@ jobs:
         with:
           name: generated-dynamic-dependencies
           path: ./.generated-dynamic-dependencies
-
   run-workflow:
-    runs-on: ubuntu-latest
     needs: generate-workflow
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: generated-dynamic-dependencies
-          path: ./.generated-dynamic-dependencies
-      - uses: ./.generated-dynamic-dependencies
+    uses: ./.generated-dynamic-dependencies
+  # run-workflow:
+  #   runs-on: ubuntu-latest
+  #   needs: generate-workflow
+  #   steps:
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: generated-dynamic-dependencies
+  #         path: ./.generated-dynamic-dependencies
+  #     - uses: ./.generated-dynamic-dependencies
