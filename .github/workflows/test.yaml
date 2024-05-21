@@ -36,7 +36,9 @@ jobs:
           - root: component4
             component: component7
             stack: dev
-    concurrency: ${{matrix.root}}
+    concurrency:
+      group: ${{matrix.root}}
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - run: echo "atmos terraform plan ${{matrix.component}} -s ${{matrix.stack}}"
