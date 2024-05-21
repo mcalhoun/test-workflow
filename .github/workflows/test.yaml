@@ -9,4 +9,15 @@ jobs:
       - uses: cloudposse/github-action-atmos-dependencies-test@feature/initial-implementation
         with:
           levels: 2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generated-dynamic-dependencies
+          path: ./.generated-dynamic-dependencies
+  run-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generated-dynamic-dependencies
+          path: ./.generated-dynamic-dependencies
       - uses: ./.generated-dynamic-dependencies
