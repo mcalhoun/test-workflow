@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: mcalhoun/test-workflow/.github/workflows/create-dynamic
+      - uses: mcalhoun/test-workflow/.github/workflows/create-dynamic.yaml@main
       - uses: actions/upload-artifact@v4
         with:
           name: generated-dynamic-dependencies
