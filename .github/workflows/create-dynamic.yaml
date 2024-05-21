@@ -1,0 +1,40 @@
+name: Atmos with Dependencies
+on:
+  workflow_call:
+jobs:
+  generate-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step1
+        shell: bash
+        run: |
+          mkdir -p ./.generated-dynamic-dependencies && cat <<'EOF' >./.generated-dynamic-dependencies/component1/action.yml
+          runs:
+            on: [workflow_call]
+          jobs:
+            component1:
+              steps:
+              - run: pwd
+                shell: bash
+              - name: Plan Component1
+                id: step-1
+                shell: bash
+                run: echo "atmos terraform plan component1 --stack one"
+              - name: Apply Component1
+                id: step-2
+                shell: bash
+                run: echo "atmos terraform apply component1 --stack one"
+            component2:
+              need: component1
+              steps:
+              - run: pwd
+                shell: bash
+              - name: Plan Component2
+                id: step-1
+                shell: bash
+                run: echo "atmos terraform plan component2 --stack one"
+              - name: Apply Component2
+                id: step-2
+                shell: bash
+                run: echo "atmos terraform apply component2 --stack one"
+          EOF
