@@ -17,9 +17,18 @@ jobs:
   run-workflow:
     runs-on: ubuntu-latest
     needs: generate-workflow
+    strategy:
+      matrix:
+        include:
+          - root-component: "component1"
+            workflow-name: "step1"
+          - root-component: "component1"
+            workflow-name: "step2"
+    concurrency:
+      group: ${{ github.workflow }}-${{ matrix.root-component }}
     steps:
       - uses: actions/download-artifact@v4
         with:
           name: generated-dynamic-dependencies
           path: ./.generated-dynamic-dependencies
-      - uses: ./.generated-dynamic-dependencies
+      - uses: ./.generated-dynamic-dependencies/${{ matrix.root-component }}/${{ matrix.workflow-name }}
