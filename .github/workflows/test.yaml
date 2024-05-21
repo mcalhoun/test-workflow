@@ -9,4 +9,4 @@ jobs:
       - uses: cloudposse/github-action-atmos-dependencies-test@feature/initial-implementation
         with:
           levels: 2
-      - uses: ./generated-dynamic-dependencies
+      - uses: ./.generated-dynamic-dependencies
