@@ -2,8 +2,8 @@ name: Dynamic Workflow Dispatcher
 on:
   workflow_dispatch:
 jobs:
-  run-workflow:
-    name: ${{matrix.component}}/${{matrix.stack}} plan & apply
+  run-plan-and-apply:
+    name: ${{matrix.component}}/${{matrix.stack}}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -11,21 +11,27 @@ jobs:
           - root: component1
             component: component1
             stack: dev
+            level: 0
           - root: component1
             component: component2
             stack: dev
+            level: 1
           - root: component1
             component: component3
             stack: dev
+            level: 1
+          - root: component4
+            component: component4
+            stack: dev
+            level: 0
           - root: component4
             component: component5
             stack: dev
+            level: 1
           - root: component4
             component: component6
             stack: dev
-          - root: component4
-            component: component7
-            stack: dev
+            level: 2
     concurrency:
       group: ${{matrix.root}}
       cancel-in-progress: false
