@@ -20,10 +20,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - root-component: "component1"
-            workflow-name: "step1"
-          - root-component: "component1"
-            workflow-name: "step2"
+          - root: "component1"
+            name: "step1"
+          - root: "component1"
+            name: "step2"
     concurrency:
       group: ${{ github.workflow }}-${{ matrix.root-component }}
     steps:
@@ -31,4 +31,4 @@ jobs:
         with:
           name: generated-dynamic-dependencies
           path: ./.generated-dynamic-dependencies
-      - uses: ./.generated-dynamic-dependencies/${{ matrix.root-component }}/${{ matrix.workflow-name }}
+      - uses: ./.generated-dynamic-dependencies/${{ matrix.root }}/${{ matrix.name }}
