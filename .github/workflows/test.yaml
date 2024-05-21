@@ -9,11 +9,4 @@ jobs:
       - uses: cloudposse/github-action-atmos-dependencies-test@feature/initial-implementation
         with:
           levels: 2
-  run-dynamic:
-    needs:
-      - generate-workflow
-    runs-on: ubuntu-latest
-    steps:
-      - run: ls -latr
-        shell: bash
-      - uses: ./.generated-dynamic-dependencies
+      - uses: ./generated-dynamic-dependencies
