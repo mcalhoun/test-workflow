@@ -11,7 +11,6 @@ jobs:
           - root: component1
             component: component1
             stack: dev
-            level: 0
           - root: component1
             component: component2
             stack: dev
@@ -23,15 +22,12 @@ jobs:
           - root: component4
             component: component4
             stack: dev
-            level: 0
           - root: component4
             component: component5
             stack: dev
-            level: 1
           - root: component4
             component: component6
             stack: dev
-            level: 2
     concurrency:
       group: ${{matrix.root}}
       cancel-in-progress: false
