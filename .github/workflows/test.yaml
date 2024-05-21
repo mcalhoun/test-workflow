@@ -6,7 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: mcalhoun/test-workflow/.github/workflows/create-dynamic.yaml@main
+      - uses: cloudposse/github-action-atmos-dependencies-test@feature/initial-implementation
+        with:
+          levels: 2
       - uses: actions/upload-artifact@v4
         with:
           name: generated-dynamic-dependencies
@@ -29,4 +31,4 @@ jobs:
         with:
           name: generated-dynamic-dependencies
           path: ./.generated-dynamic-dependencies
-      - uses: ./.generated-dynamic-dependencies/component1
+      - uses: ./.generated-dynamic-dependencies
