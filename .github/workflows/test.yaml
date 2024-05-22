@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 jobs:
   run-plan-and-apply:
-    name: ${{matrix.component}}/${{matrix.stack}}
+    name: ${{matrix.root}}/${{matrix.component}}/${{matrix.stack}}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -14,11 +14,9 @@ jobs:
           - root: component1
             component: component2
             stack: dev
-            level: 1
           - root: component1
             component: component3
             stack: dev
-            level: 1
           - root: component4
             component: component4
             stack: dev
