@@ -1,4 +1,5 @@
 name: atmos terraform plan
+run-name: atmos terraform plan ${{ github.event.inputs.atmos_pro_run_id}}
 on:
   workflow_dispatch:
     inputs:
@@ -6,6 +7,16 @@ on:
         type: string
       stack:
         type: string
+<<<<<<< Updated upstream
+||||||| Stash base
+      run_id:
+        type: string
+    outputs:
+      run_id: ${{ github.event.inputs.run_id }}
+=======
+      atmos_pro_run_id:
+        type: string
+>>>>>>> Stashed changes
 jobs:
   plan:
     runs-on: ubuntu-latest
