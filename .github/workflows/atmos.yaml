@@ -1,4 +1,4 @@
-name: "Shared auto release"
+name: atmos terraform plan
 on:
   workflow_dispatch:
     inputs:
