@@ -6,6 +6,10 @@ on:
         type: string
       stack:
         type: string
+      run_id:
+        type: string
+    outputs:
+      run_id: ${{ github.event.inputs.run_id }}
 jobs:
   plan:
     runs-on: ubuntu-latest
