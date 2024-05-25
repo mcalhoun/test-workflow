@@ -1,0 +1,40 @@
+{
+  "sha": "8c703baf6e85dca0e60b0b76edc7efc32be0712a",
+  "stacks": [
+    {
+      "component": "vpc",
+      "component_type": "terraform",
+      "component_path": "components/terraform/vpc",
+      "stack": "tenant1-ue2-dev",
+      "stack_slug": "tenant1-ue2-dev-vpc",
+      "spacelift_stack": "tenant1-ue2-dev-vpc",
+      "atlantis_project": "tenant1-ue2-dev-vpc",
+      "affected": "component",
+      "dependant_stacks": [
+        {
+          "component": "tgw/hub",
+          "component_type": "terraform",
+          "component_path": "components/terraform/tgw/hub",
+          "stack": "tenant1-ue2-dev",
+          "stack_slug": "tenant1-ue2-dev-tgw-hub",
+          "spacelift_stack": "tenant1-ue2-dev-tgw-hub",
+          "atlantis_project": "tenant1-ue2-dev-tgw-hub",
+          "affected": "component",
+          "dependant_stacks": [
+            {
+              "component": "tgw/spoke",
+              "component_type": "terraform",
+              "component_path": "components/terraform/tgw/spoke",
+              "stack": "tenant1-ue2-dev",
+              "stack_slug": "tenant1-ue2-dev-tgw-spoke",
+              "spacelift_stack": "tenant1-ue2-dev-tgw-spoke",
+              "atlantis_project": "tenant1-ue2-dev-tgw-spoke",
+              "affected": "component",
+              "dependant_stacks": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
