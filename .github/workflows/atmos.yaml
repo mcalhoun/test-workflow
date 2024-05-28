@@ -1,5 +1,5 @@
 name: atmos terraform plan
-run-name: atmos terraform plan ${{ github.event.inputs.atmos_pro_run_id}}
+run-name: plan ${{ github.event.inputs.component }}/${{ github.event.inputs.stack }}/${{ github.event.inputs.atmos_pro_run_id}}
 on:
   workflow_dispatch:
     inputs:
