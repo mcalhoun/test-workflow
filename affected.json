@@ -1,5 +1,5 @@
 {
-  "sha": "f2d957651b4954b6ddaab4856bfe530b9b900738",
+  "sha": "388179faed5c6909c6a36652ada671fc1c25a8e0",
   "stacks": [
     {
       "component": "vpc",
@@ -10,7 +10,7 @@
       "spacelift_stack": "tenant1-ue2-dev-vpc",
       "atlantis_project": "tenant1-ue2-dev-vpc",
       "affected": "component",
-      "dependantStacks": [
+      "dependentStacks": [
         {
           "component": "tgw/hub",
           "component_type": "terraform",
@@ -20,7 +20,7 @@
           "spacelift_stack": "tenant1-ue2-dev-tgw-hub",
           "atlantis_project": "tenant1-ue2-dev-tgw-hub",
           "affected": "component",
-          "dependantStacks": [
+          "dependentStacks": [
             {
               "component": "tgw/spoke",
               "component_type": "terraform",
@@ -30,7 +30,7 @@
               "spacelift_stack": "tenant1-ue2-dev-tgw-spoke",
               "atlantis_project": "tenant1-ue2-dev-tgw-spoke",
               "affected": "component",
-              "dependantStacks": []
+              "dependentStacks": []
             }
           ]
         }
