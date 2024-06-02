@@ -16,3 +16,6 @@ jobs:
       - name: plan
         shell: bash
         run: echo "atmos terraform plan ${{ github.event.inputs.component }} -s ${{ github.event.inputs.stack }}"
+      - name: sleep
+        shell: bash
+        run: sleep 10
