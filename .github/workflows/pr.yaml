@@ -9,6 +9,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: affected
         shell: bash
+        env:
+          PR_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           set -x -e
           cat affected.template.json|envsubst > affected.json

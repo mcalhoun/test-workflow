@@ -1,5 +1,5 @@
 {
-  "sha": "${GITHUB_SHA}",
+  "sha": "${PR_COMMIT_SHA}",
   "stacks": [
     {
       "component": "vpc",
