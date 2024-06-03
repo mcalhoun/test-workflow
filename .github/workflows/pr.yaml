@@ -10,5 +10,7 @@ jobs:
       - name: affected
         shell: bash
         run: |
+          set -x -e
           cat affected.template.json|envsubst > affected.json
+          cat affected.json
           curl -X POST -H "Content-Type: application/json" -d @affected.json https://ngrok.mattcalhoun.com/api/affected-stacks
