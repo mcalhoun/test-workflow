@@ -3,6 +3,8 @@ run-name: plan ${{ github.event.inputs.component }}/${{ github.event.inputs.stac
 on:
   workflow_dispatch:
     inputs:
+      sha:
+        type: string
       component:
         type: string
       stack:
