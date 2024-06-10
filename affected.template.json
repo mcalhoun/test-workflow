@@ -1,4 +1,6 @@
 {
+  "owner": "mcalhoun",
+  "repo": "test-workflow",
   "sha": "${PR_COMMIT_SHA}",
   "stacks": [
     {
