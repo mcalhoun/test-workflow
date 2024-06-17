@@ -2,6 +2,8 @@ name: Atmos Affected Stacks
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  release:
+    types: [published]
 jobs:
   affected:
     runs-on: ubuntu-latest
