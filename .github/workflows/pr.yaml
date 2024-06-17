@@ -12,7 +12,7 @@ jobs:
       - name: affected
         shell: bash
         env:
-          PR_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_COMMIT_SHA: ${{ github.sha }}
         run: |
           set -x -e
           cat affected.template.json|envsubst > affected.json
