@@ -9,14 +9,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: dump comntext
+
+      - name: dump context
         shell: bash
         run: |
           echo '${{ toJSON(github) }}'
+      - name: Set ATMOS_COMMIT_SHA for pull request or release
+        id: set-sha
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "ATMOS_COMMIT_SHA=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
+          elif [[ "${{ github.event_name }}" == "release" ]]; then
+            echo "ATMOS_COMMIT_SHA=${{ github.sha }}" >> $GITHUB_ENV
+          fi
+
       - name: affected
         shell: bash
-        env:
-          PR_COMMIT_SHA: ${{ github.sha }}
         run: |
           set -x -e
           cat affected.template.json|envsubst > affected.json
