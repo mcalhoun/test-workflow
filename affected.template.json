@@ -1,7 +1,7 @@
 {
   "owner": "mcalhoun",
   "repo": "test-workflow",
-  "sha": "${PR_COMMIT_SHA}",
+  "sha": "${COMMIT_SHA}",
   "stacks": [
     {
       "component": "vpc",
