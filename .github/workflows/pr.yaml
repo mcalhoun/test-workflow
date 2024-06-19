@@ -12,7 +12,7 @@ jobs:
       - name: dump comntext
         shell: bash
         run: |
-          echo ${{ toJSON(github) }}
+          echo '${{ toJSON(github) }}'
       - name: affected
         shell: bash
         env:
