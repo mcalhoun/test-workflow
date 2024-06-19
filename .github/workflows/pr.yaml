@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: dump comntext
+        shell: bash
+        run: |
+          echo ${{ toJSON(github) }}
       - name: affected
         shell: bash
         env:
